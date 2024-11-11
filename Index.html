@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Estilos.css" />
+    <title>Ventana de Cámara</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="main-container">
+        <span id="countdownMessage" style="display:none;"></span> <!-- Mensaje de cuenta regresiva -->
+        <div class="left-container">
+            <video id="cameraStream" autoplay playsinline></video>
+            <img id="capturedImage" style="display:none; width: 500px; height: 300px; object-fit: cover; border: 2px solid #333; border-radius: 10px;">
+            <div class="button-container">
+                <button id="captureButton">Capturar Imagen</button>
+                <button id="toggleCameraButton">Encender Cámara</button> <!-- Botón de encender/apagar -->
+            </div>
+        </div>
+
+        <div class="right-container">
+            <!-- Slider de progreso -->
+            <label id="deduccion" for="slider1"></label>
+            <input type="range" id="slider1" min="0" max="100" value="50" step="1" disabled>
+
+            <canvas id="canvas" style="display: none;"></canvas> <!-- Canvas para imagen -->
+            <div id="output"></div> <!-- Donde mostramos la predicción -->
+        </div>
+    </div>
+
+    <!-- Script de carga del modelo IA -->
+    <script src="model.js" defer></script>
+</body>
+</html>
